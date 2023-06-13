@@ -1,0 +1,107 @@
+<mat-toolbar class="d-flex justify-content-between" [style.background-color]="'#DBEAFE'">
+    <div style="font-size: 20px; font-weight: bold;">Edit Admin Remarks</div>
+    <mat-icon  [mat-dialog-close]="">close</mat-icon>
+</mat-toolbar>
+  
+    <div style="display: flex; flex-direction: row; margin-top: 10px;">
+    <div style="margin-left: 10px; margin-top: 10px;">
+    <mat-form-field appearance="outline">
+        <mat-label>clarity</mat-label>
+        <mat-select [(ngModel)]="stag.clarity" type="text" name="clarity">
+          <mat-option value="High">High</mat-option>
+          <mat-option value="Mid">Mid</mat-option>
+          <mat-option value="Low">Low</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div style="margin-left: 10px; margin-top: 10px;">
+    <mat-form-field appearance="outline">
+        <mat-label>Fitment</mat-label>
+        <mat-select [(ngModel)]="stag.fitment" type="text" name="fitment">
+          <mat-option value="Strategic">Strategic</mat-option>
+          <mat-option value="Tactical">Tactical</mat-option>
+          <mat-option value="None">None</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> 
+
+    <div style="margin-left: 10px; margin-right: 10px; margin-top: 10px;">
+        <mat-form-field appearance="outline">
+          <mat-label>Practicality</mat-label>
+          <mat-select [(ngModel)]="stag.practicality" name="practicality">
+            <mat-option value="High">High</mat-option>
+            <mat-option value="Mid">Mid</mat-option>
+            <mat-option value="Low">Low</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>  
+
+
+    <div style="display: flex; flex-direction: row;">
+      <div style="margin-right: 10px; margin-left: 10px;">
+        <mat-form-field appearance="outline">
+          <mat-label>Timing</mat-label>
+          <mat-select [(ngModel)]="stag.timing" name="timing">
+            <mat-option value="Too-Late">Too Late</mat-option>
+            <mat-option value="Present">Present</mat-option>
+            <mat-option value="Near-Future">Near Future</mat-option>
+            <mat-option value="Distant Future">Distant Future</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+       
+        <div style="margin-right: 10px">
+          <mat-form-field appearance="outline">
+            <mat-label>Decision</mat-label>
+            <mat-select [(ngModel)]="stag.decision" name="decision" (selectionChange)="decisionChange()">
+              <mat-option value="Accepted">Accepted</mat-option>
+              <mat-option value="Rejected">Rejected</mat-option>
+              <mat-option value="ON-Hold">ON-Hold</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+        </div>
+        
+        <div style="margin-right: 10px">
+          <mat-form-field appearance="outline">
+            <mat-label>rejectionReason</mat-label>
+            <mat-select [(ngModel)]="stag.rejectionReason" name="rejectionReason" [disabled]="!isRejectionReasonEnabled">
+              <mat-option value="No Clarity">No Clarity</mat-option>
+              <mat-option value="Irrelevant">Irrelevant</mat-option>
+              <mat-option value="Duplicate">Duplicate</mat-option>
+              <mat-option value="Impractical">Impractical</mat-option>
+              <mat-option value="Wrong Timing">Wrong Timing</mat-option>
+              <mat-option value="Already Exists">Already Exists</mat-option>
+              <mat-option value="Too Complex">Too Complex</mat-option>
+            </mat-select>
+          </mat-form-field>          
+        </div>
+    </div>
+        
+    <div style="display: flex; flex-direction: row;">
+        <div style="margin-right: 10px; margin-left: 10px;">
+          <mat-form-field appearance="outline">
+            <mat-label>size</mat-label>
+            <mat-select [(ngModel)]="stag.size" name="size">
+              <mat-option value="Tiny">Tiny</mat-option>
+              <mat-option value="Small">Small</mat-option>
+              <mat-option value="Medium">Medium</mat-option>
+              <mat-option value="Large">Large</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+    <div style="margin-right: 10px;">
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Remarks</mat-label>
+        <input [(ngModel)]="stag.remarks" type="text" name="Remarks" matInput placeholder="Remarks for Idea">
+    </mat-form-field>
+   </div>
+</div>
+
+<div class="text-center col-12">
+    <button [mat-dialog-close]="" mat-raised-button color="primary" (click)="update(stag)">Save</button>
+</div>

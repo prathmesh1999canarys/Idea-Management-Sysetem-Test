@@ -1,0 +1,59 @@
+<div class="page-header1">
+    <div><b>IMS Dashboard</b></div>
+</div>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 25%;
+    }
+    thead, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<div style="display: flex; justify-content: center; margin-left: 100px;">
+    <div style="margin-left: 50px;">
+        <div style="font-weight: bold;">
+            Statuswise Count:-
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Total Submitted Ideas</th>
+                    <th>Number of Ideas In Open position</th>
+                    <th>Number Of Ideas Commented By Admin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{totalIdea.count}}</td>
+                    <td>{{ideaStatus.Count}}</td>
+                    <td>{{adminStatus.count}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- previous code -->
+
+    <div style="width: 500px; height: 1250p; display: flex; justify-content: end;margin-right: 100px; margin-top: 20px;">
+        <h3 style="text-align: center;"><b>Areawise Graph</b></h3>
+        <canvas id="IdeaAreaWiseChart"></canvas>
+    </div>
+</div>
+
+<!-- Rejection Reason Piechart -->
+<div style="margin-top: 10px; margin-bottom: 200px; display: flex; justify-content: center; margin-top: 30px;">
+    <div id="chart2">
+        <div class="col-lg-6">
+            <h4 style="text-align: center;"><b>Rejection Reason</b></h4>
+            <canvas id="rejectionReason"></canvas>
+        </div>
+    </div>
+</div>

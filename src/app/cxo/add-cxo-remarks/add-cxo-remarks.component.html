@@ -1,0 +1,95 @@
+<mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+  <div><b>CXO Qualifying The Idea</b></div>
+  <mat-icon  [mat-dialog-close]="">close</mat-icon>
+</mat-toolbar>
+
+<mat-tab-group>
+  <mat-tab label="Details Of Selected Idea">
+    <div class ="container">
+
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Problem</mat-label>
+        <input type="text" [(ngModel)]="stag.problem" name="problem" matInput placeholder="problem" readonly>
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Solution</mat-label>
+        <textarea type="text" [(ngModel)]="stag.solution" name="solution" matInput placeholder="solution" readonly></textarea>
+      </mat-form-field>
+      <div style="display: flex;">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Current Idea Status</mat-label>
+        <input type="text" [(ngModel)]="stag.status" name="status" matInput placeholder="status" readonly>
+      </mat-form-field>
+
+      <mat-form-field class="w-100" appearance="outline" style="margin-left: 5px; margin-right: 5px;">
+        <mat-label>Admin's Decision</mat-label>
+        <input type="text" [(ngModel)]="stag.adminRemarks.decision" name="adminRemarks.remarks" matInput placeholder="adminRemarks.remarks" readonly>
+      </mat-form-field>
+
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>BU Decision</mat-label>
+        <input type="text" [(ngModel)]="stag.adminRemarks.buRemarks.decision" name="adminRemarks.buRemarks.remarks" matInput placeholder="adminRemarks.buRemarks.remarks" readonly>
+      </mat-form-field>
+    </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="CXO Feedback">
+  <div class = "container">
+  <div style="display: flex;">
+    <mat-form-field appearance="outline">
+      <mat-label>Decision</mat-label>
+      <mat-select [(ngModel)]="data2.decision" name="decision" (selectionChange)="decisionChange()" [required]="true">
+        <mat-option value="Accepted">Accepted</mat-option>
+        <mat-option value="Rework">Rework</mat-option>
+        <mat-option value="Rejected">Rejected</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    
+    <mat-form-field appearance="outline" style="margin-left: 5px; margin-right: 5px;">
+      <mat-label>RejectionReason</mat-label>
+      <mat-select [(ngModel)]="data2.rejectionReason" name="rejectionReason" placeholder="rejectionReason" maxlength="100" [disabled]="!isRejectionReasonEnabled">
+        <mat-option value="Fitment">Fitment</mat-option>
+        <mat-option value="Size">Size</mat-option>
+        <mat-option value="Budget">Budget</mat-option>
+        <mat-option value="Clarity">Clarity</mat-option>
+        <mat-option value="NotApplicable">Not Applicable</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <form #addform="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Update Idea Status</mat-label>
+      <mat-select matNativeControl required name="status" [(ngModel)]="stag.status" [(ngModel)]="data2.status"  matInput placeholder="Status" [required]="true">
+        <mat-option value="Approved by CXO">Approve</mat-option>
+        <mat-option value="Rework suggested By CXO">Suggest Rework</mat-option>
+        <mat-option value="Rejected By CXO">Reject</mat-option>
+      </mat-select>
+    </mat-form-field>
+    </form>
+  </div>
+
+  <form #addform="ngForm">     
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Area</mat-label>
+      <input [(ngModel)]="data2.area" mat-input type="string" name="area" matInput placeholder="area" required maxlength="100">
+    </mat-form-field>
+  </form>
+    
+   
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Remarks</mat-label>
+    <input [(ngModel)]="data2.remarks" type="text" name="remarks" matInput placeholder="Remarks" maxlength="500">
+  </mat-form-field>
+
+  <div class="text-center col-12" style="margin-top: 15px;">
+    <button [mat-dialog-close]="true" mat-raised-button color="primary"
+      (click)="performOperations(data2, stag)">Submit</button>
+  </div>
+
+</div>
+</mat-tab>
+</mat-tab-group>
+

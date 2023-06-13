@@ -1,0 +1,174 @@
+<mat-toolbar class="d-flex justify-content-between" [style.background-color]="'#DBEAFE'">
+  <div style="font-size: 20px; font-weight: bold;">Idea Admin Qualifying the Idea</div>
+  <mat-icon mat-dialog-close="true">close</mat-icon>
+</mat-toolbar>
+
+<mat-tab-group>
+  <mat-tab label="Details Of Selected Idea">
+    <div class="container">
+      <div>
+        <div style="padding: 10px;">
+          <div style="padding: 10px;">
+            <div>
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Problem</mat-label>
+                <textarea [(ngModel)]="stag.problem" name="problem" matInput placeholder="problem" readonly></textarea>
+              </mat-form-field>
+
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Solution</mat-label>
+                <textarea [(ngModel)]="stag.solution" name="solution" matInput placeholder="solution" readonly></textarea>
+              </mat-form-field>
+
+              <div style="display: flex;">
+
+                <div style="margin-right: 5px;">
+                  <mat-form-field class="w-100" appearance="outline" style="text-align: center;">
+                    <mat-label>Current Idea Status</mat-label>
+                    <input type="text" [(ngModel)]="stag.status" name="status" matInput placeholder="status" readonly>
+                  </mat-form-field>
+                </div>
+                
+                <div style="margin-left: 5px;">
+                  <mat-form-field class="w-100" appearance="outline" style="text-align: center;">
+                    <mat-label>Submitted Date</mat-label>
+                    <input type="text" [(ngModel)]="stag.createdDate " name="createdDate" matInput placeholder="createdDate" readonly>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Admin Feedback">
+    <div class="container">
+     
+        <div style="display: flex; flex-direction: row;">
+          <div style="margin-right: 10px;">
+            <form #addform="ngForm">
+            <mat-form-field appearance="outline">
+              <mat-label>Fitment</mat-label>
+              <mat-select [(ngModel)]="data2.fitment" name="fitment" maxlength="50" [required]="true">
+                <mat-option value="Strategic">Strategic</mat-option>
+                <mat-option value="Tactical">Tactical</mat-option>
+                <mat-option value="None">None</mat-option>
+              </mat-select>
+            </mat-form-field>
+            </form>
+          </div>
+
+          <div style="margin-right: 10px;">
+            <form #addform="ngForm">
+            <mat-form-field appearance="outline">
+              <mat-label>Practicality</mat-label>
+              <mat-select [(ngModel)]="data2.practicality" name="practicality"  maxlength="50" [required]="true">
+                <mat-option value="High">High</mat-option>
+                <mat-option value="Mid">Mid</mat-option>
+                <mat-option value="Low">Low</mat-option>
+              </mat-select>
+            </mat-form-field>
+            </form>
+          </div>
+
+          <div>
+            <form #addform="ngForm">
+            <mat-form-field appearance="outline">
+              <mat-label>Timing</mat-label>
+              <mat-select [(ngModel)]="data2.timing" name="timing"  maxlength="50" [required]="true">
+                <mat-option value="Too-Late">Too Late</mat-option>
+                <mat-option value="Present">Present</mat-option>
+                <mat-option value="Near-Future">Near Future</mat-option>
+                <mat-option value="Distant Future">Distant Future</mat-option>
+              </mat-select>
+            </mat-form-field>
+            </form>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: row; align-items: center;">
+          <div style="margin-right: 10px;">
+            <form #addform="ngForm">
+            <mat-form-field appearance="outline" style="width: 100%;">
+              <mat-label>Decision</mat-label>
+              <mat-select [(ngModel)]="data2.decision" name="decision"  maxlength="50" (selectionChange)="decisionChange()" [required]="true">
+                <mat-option value="Accepted">Accepted</mat-option>
+                <mat-option value="Rework">Rework</mat-option>
+                <mat-option value="Rejected">Rejected</mat-option>
+              </mat-select>
+            </mat-form-field>
+            </form>
+          </div>
+        
+          <div style="margin-right: 10px;">
+            <mat-form-field appearance="outline" style="width: 100%;">
+              <mat-label>Rejection Reason</mat-label>
+              <mat-select [(ngModel)]="data2.rejectionReason" name="rejectionReason" maxlength="100" [disabled]="!isRejectionReasonEnabled">
+                <mat-option value="No Clarity">No Clarity</mat-option>
+                <mat-option value="Irrelevant">Irrelevant</mat-option>
+                <mat-option value="Duplicate">Duplicate</mat-option>
+                <mat-option value="Impractical">Impractical</mat-option>
+                <mat-option value="Wrong Timing">Wrong Timing</mat-option>
+                <mat-option value="Already Exists">Already Exists</mat-option>
+                <mat-option value="Too Complex">Too Complex</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        
+          <div>
+            <form #addform="ngForm">
+            <mat-form-field appearance="outline" style="width: 100%;">
+              <mat-label>Size</mat-label>
+              <mat-select [(ngModel)]="data2.size" name="size"  maxlength="50" [required]="true">
+                <mat-option value="Tiny">Tiny</mat-option>
+                <mat-option value="Small">Small</mat-option>
+                <mat-option value="Medium">Medium</mat-option>
+                <mat-option value="Large">Large</mat-option>
+              </mat-select>
+            </mat-form-field>
+            </form>
+          </div>
+        </div>        
+
+        
+        <div class="d-flex">
+          <!-- <form #addform="ngForm"> -->
+          <mat-form-field class="w-50 pr-2" appearance="outline">
+            <mat-label>Clarity</mat-label>
+            <mat-select [(ngModel)]="data2.clarity" name="clarity"  maxlength="50" [required]="true">
+              <mat-option value="High">High</mat-option>
+              <mat-option value="Medium">Mid</mat-option>
+              <mat-option value="Low">Low</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- </form> -->
+        
+          <div style="width: 20px;"></div>
+          <!-- <form #addform="ngForm"> -->
+          <mat-form-field class="w-50 pl-2" appearance="outline">
+            <mat-label>Update Idea Status</mat-label>
+            <mat-select [(ngModel)]="stag.status" name="status" matInput placeholder="Status" [required]="true">
+              <mat-option value="Approved By Admin">Approve</mat-option>
+              <mat-option value="Rework Suggested By Admin">Suggest Rework</mat-option>
+              <mat-option value="Rejected By Admin">Reject</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- </form> -->
+        </div>
+
+        <div>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Remarks</mat-label>
+            <input [(ngModel)]="data2.remarks" type="text" name="remarks" matInput placeholder="Remarks">
+          </mat-form-field>
+        </div>
+
+        <div class="text-center col-12" style="margin-top: 15px;">
+          <button [mat-dialog-close]="true" mat-raised-button color="primary" (click)="performOperations(data2, stag)">Submit</button>
+        </div>
+     
+    </div>
+  </mat-tab>
+</mat-tab-group>

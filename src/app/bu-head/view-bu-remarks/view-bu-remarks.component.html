@@ -1,0 +1,28 @@
+<mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+    <div> <b>View BU Remarks</b></div>
+    <mat-icon  [mat-dialog-close]="">close</mat-icon>
+</mat-toolbar>
+
+  <div class ="container">
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Problem</mat-label>
+      <input type="text" [(ngModel)]="stag.adminRemarksIdeaProblem" name="buRemarksAdminRemarksIdeaProblem" matInput placeholder="buRemarksAdminRemarksIdeaProblem" readonly>
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Solution</mat-label>
+      <textarea type="text" [(ngModel)]="stag.adminRemarksIdeaSolution" name="buRemarksAdminRemarksIdeaProblem" matInput placeholder="buRemarksAdminRemarksIdeaProblem" readonly></textarea>
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>Admin's Decision</mat-label>
+      <input type="text" [(ngModel)]="stag.adminRemarksDecision" name="buRemarksAdminRemarksIdeaProblem" matInput placeholder="buRemarksAdminRemarksIdeaProblem" readonly>
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>BU Decision</mat-label>
+      <input type="text" [(ngModel)]="stag.decision" name="buRemarksAdminRemarksIdeaProblem" matInput placeholder="buRemarksAdminRemarksIdeaProblem" readonly>
+    </mat-form-field>
+</div>
+
+<div class="text-center col-12">
+  <button [mat-dialog-close]="" mat-raised-button color="primary" (click)="getID(stag)">Back to list</button>
+</div>
+

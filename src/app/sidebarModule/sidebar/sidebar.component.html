@@ -1,0 +1,43 @@
+<mat-sidenav-container autosize [ngClass]="{ 'collapsed':isExpanded }">
+    <a>*</a>
+  
+    <mat-sidenav #sidenav mode="side" opened="isExpanded" *ngIf="!hidden" disableClose>
+      <mat-nav-list>
+        <!-- <mat-list-item (click)="hidden = !hidden" matTooltip="Toggle side menu" matTooltipPosition="right"
+          *ngIf="mobile && !hidden">
+          <mat-icon color="primary" mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_left
+          </mat-icon>
+        </mat-list-item> -->
+  
+        <mat-list-item (click)="isExpanded = !isExpanded" matTooltip="Toggle side menu" matTooltipPosition="right">
+          <mat-icon color="primary" mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
+          </mat-icon>
+        </mat-list-item>
+  
+        <mat-list-item class="lstitm" routerLink="../" routerLinkActive="router-link-active">
+          <div class="menu-item3 d-flex align-items-center">
+            <mat-icon class="menu-item" color="primary" matTooltip="Home" matTooltipPosition="right" mat-list-icon>home
+            </mat-icon>
+            <span *ngIf="isExpanded " class="menu-item"> Home</span>
+          </div>
+        </mat-list-item>
+
+        <ng-container *ngFor="let i of  item">
+            <mat-list-item  class="lstitm" [routerLink]="[ i.route]" routerLinkActive="router-link-active">
+              <div class="menu-item3 d-flex align-items-center">
+                <mat-icon  class="menu-item" color="primary" [matTooltip]="i.toolTip"
+                  matTooltipPosition="right" mat-list-icon>{{ i.icon }} </mat-icon>
+                <span *ngIf="isExpanded " class="menu-item"> {{ i.name }}</span>
+              </div>
+            </mat-list-item>
+        </ng-container>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="content-padding">
+          <router-outlet></router-outlet>
+        </div>
+      </mat-sidenav-content>
+    
+    </mat-sidenav-container>

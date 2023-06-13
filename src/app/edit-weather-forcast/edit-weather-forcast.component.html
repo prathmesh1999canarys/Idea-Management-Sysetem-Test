@@ -1,0 +1,22 @@
+
+<mat-toolbar class="d-flex justify-content-between">
+    <div>Add Weather Forcast</div>
+    <mat-icon  [mat-dialog-close]="">close</mat-icon>
+</mat-toolbar>
+<div>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Temperature in C</mat-label>
+        <input type="text" [(ngModel)]="stag.temperatureC" name="category" matInput placeholder="Temperature in C">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Temperature in F</mat-label>
+        <input mat-input type="text" [(ngModel)]="stag.temperatureF" name="temp" matInput placeholder="Temperature in F">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Summary</mat-label>
+        <input type="text" [(ngModel)]="stag.summary" name="summary" matInput placeholder="Summary">
+    </mat-form-field>
+</div>
+<div class="text-center col-12">
+    <button mat-raised-button color="primary" (click)="update(stag)">Save</button>
+</div>

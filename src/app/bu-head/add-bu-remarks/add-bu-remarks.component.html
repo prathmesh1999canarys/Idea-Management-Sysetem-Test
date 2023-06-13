@@ -1,0 +1,118 @@
+<mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+  <div><b>BU Qualifying The Idea</b></div>
+  <mat-icon [mat-dialog-close]="">close</mat-icon>
+</mat-toolbar>
+
+<mat-tab-group class="mt-3">
+  <mat-tab label="Details Of Selected Idea">
+    <div class="container">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Problem</mat-label>
+        <input matInput type="text" [(ngModel)]="stag.problem" name="problem" placeholder="problem" readonly>
+      </mat-form-field>
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Solution</mat-label>
+        <textarea matInput type="text" [(ngModel)]="stag.solution" name="solution" placeholder="solution"
+          readonly></textarea>
+      </mat-form-field>
+
+      <div style="display: flex;">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Current Idea Status</mat-label>
+          <input matInput type="text" [(ngModel)]="stag.status" name="status" placeholder="status" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="w-100" appearance="outline" style="margin-left: 10px;">
+          <mat-label>Admin's Decision</mat-label>
+          <input matInput type="text" [(ngModel)]="stag.adminRemarks.decision" name="adminRemarks.decision"
+            placeholder="adminRemarks.decision" readonly>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="BU-Head Feedback">
+    <div class="container">
+      <div style="display: flex;">
+        <mat-form-field class="w-100 mr-2" appearance="outline" style="flex-grow: 1; margin-right: 10px;">
+          <mat-label>Decision</mat-label>
+          <select matNativeControl required name="decision" [(ngModel)]="data2.decision" #decision="ngModel"
+            (change)="decisionChange()" [required]="true">
+            <option value="">Select</option>
+            <option value="Accepted">Accepted</option>
+            <option value="Rework">Rework</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </mat-form-field>
+      
+
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>RejectionReason</mat-label>
+          <select matNativeControl name="rejectionReason" [(ngModel)]="data2.rejectionReason"
+            [disabled]="!isRejectionReasonEnabled">
+            <option value="">Select</option>
+            <option value="Unfit">Unfit</option>
+            <option value="Too Expensive">Too Expensive</option>
+            <option value="No Budget">No Budget</option>
+            <option value="Wrong Timing">Wrong Timing</option>
+            <option value="Too Complex">Too Complex</option>
+            <option value="Unwilling">Unwilling</option>
+          </select>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex;">
+        <mat-form-field class="w-100 mr-2" appearance="outline" style="flex-grow: 1; margin-right: 10px;">
+          <mat-label>Lead</mat-label>
+          <input matInput [(ngModel)]="data2.lead" name="lead" type="text" placeholder="Lead">
+        </mat-form-field>
+
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" [min]="minDate" [(ngModel)]="data2.deadline">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex;">
+        <div style="flex-grow: 1; margin-right: 10px;">
+          <mat-form-field class="w-100" appearance="outline" style="flex-grow: 1;">
+            <mat-label>Budget</mat-label>
+            <input matInput [(ngModel)]="data2.budget" name="budget" type="number" placeholder="Budget"
+              oninput="validity.valid||(value=''); if(value < 0) value = '';" min="0">
+          </mat-form-field>
+        </div>
+
+        <div style="flex-grow: 1; margin-right: 10px;">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>ProjectId</mat-label>
+            <input matInput [(ngModel)]="data2.projectId" name="projectId" type="text" placeholder="Project Id">
+          </mat-form-field>
+        </div>
+
+        <div style="flex-grow: 1;">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Update Idea Status</mat-label>
+            <select matNativeControl required name="status" [(ngModel)]="stag.status" matInput placeholder="Status" [required]="true">
+              <option value="Approved by BU">Approve</option>
+              <option value="Rework suggested By BU"> Suggest Rework</option>
+              <option value="Rejected By BU">Reject</option>
+            </select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Remarks</mat-label>
+        <textarea matInput [(ngModel)]="data2.remarks" name="remarks" type="text" placeholder="remarks"></textarea>
+      </mat-form-field>
+
+      <div class="text-center col-12" style="margin-top: 15px;">
+        <button [mat-dialog-close]="true" mat-raised-button color="primary"
+          (click)="performOperations(data2, stag)">Submit</button>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

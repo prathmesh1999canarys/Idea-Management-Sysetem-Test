@@ -1,0 +1,28 @@
+<div style="overflow: hidden;">
+    <mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+        <div> <b>Edit Business Unit </b></div>
+        <mat-icon  [mat-dialog-close]="">close</mat-icon>
+    </mat-toolbar>    
+        <div class="container">
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>BU Name</mat-label>
+                <input type="text" [(ngModel)]="stag.bU_Name" name="BU Name" matInput placeholder="BU Name">
+            </mat-form-field>
+            <mat-form-field class="w-100" appearance="outline">
+                <mat-label>BU Description</mat-label>
+                <input mat-input type="text" [(ngModel)]="stag.bU_Description" name="temp" matInput placeholder="BU Description">
+            </mat-form-field>
+        
+        <!-- <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Business Unit Name</mat-label>
+            <input mat-input type="string" [(ngModel)]="stag.bU_Name" name="bU_Name" matInput placeholder="bU_Name">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Business Unit Name</mat-label>
+            <input mat-input type="string" [(ngModel)]="stag.bU_Description" name="bU_Description" matInput placeholder="bU_Description">
+        </mat-form-field> -->
+        <div class="text-center col-12">
+            <button [mat-dialog-close]="" mat-raised-button color="primary" (click)="update(stag)">Save</button>
+        </div>
+    </div>
+    

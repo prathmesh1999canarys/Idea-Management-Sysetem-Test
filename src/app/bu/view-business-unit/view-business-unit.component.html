@@ -1,0 +1,21 @@
+<div style="overflow: hidden;">
+    <mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+    <div><b>View Business Unit</b></div>
+    <mat-icon [mat-dialog-close]="">close</mat-icon>
+    </mat-toolbar>
+
+    <div style="display: flex; flex-direction: row;">
+          <div style="margin-left: 30px; margin-right: 30px; margin-top: 10px"> 
+          <mat-form-field class="w-130" appearance="outline">
+            <mat-label>BU Name</mat-label>
+            <input type="text" [(ngModel)]="stag.bU_Name" name="bU_Name" matInput placeholder="bU_Name" readonly>
+          </mat-form-field>
+          </div>
+    </div>
+
+    <div style="margin-left: 30px; margin-right: 30px; margin-top: 10px"> 
+        <mat-form-field class="w-130" appearance="outline">
+            <mat-label>BU Description</mat-label>
+            <textarea type="text" [(ngModel)]="stag.bU_Description" name="bU_Description" matInput placeholder="bU_Description" readonly></textarea>
+          </mat-form-field>
+        </div>

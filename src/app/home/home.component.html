@@ -1,0 +1,108 @@
+<div *ngIf="!loginDisplay" style="text-align: center;">
+  <h1 class="welcome-heading">Welcome to Idea Management system</h1>
+</div>
+
+<div class="container" *ngIf="!loginDisplay" style="margin-top: 100px;">
+<div class="left-section">
+<img src="assets/Images/IdeaLogo.avif" alt="IdeasImage">
+</div>
+    
+<mat-card class="card-section" *ngIf="!loginDisplay">
+  <mat-card-title>About Idea Management system</mat-card-title>
+  <mat-card-subtitle>Capture the Collective intelligence and innovative potential of Employees</mat-card-subtitle>
+  <mat-card-content>
+    An Idea Management System (IMS) is a software or platform designed to facilitate the collection,
+    organization, evaluation, and implementation of ideas within an organization or community.
+    It serves as a centralized repository for capturing, nurturing, and developing innovative
+    ideas from various sources, such as employees, customers, partners, or stakeholders.
+
+    With Idea Management System, you can:
+    <ul>
+      <li>Enhance innovation and creativity</li>
+      <li>Improve decision-making</li>
+      <li>Increase employee engagement</li>
+      <li>Knowledge sharing and collaboration</li>
+    </ul>
+
+    Start your journey of Knowledge and personal development with IMS System. Sign in now to get started!
+  </mat-card-content>
+</mat-card>
+</div>
+
+
+<div class="container" *ngIf="loginDisplay">
+<h1 style="text-align: center; margin-top: 20px; font-size: 30px; font-family: 'Times New Roman', Times, serif;">Welcome to the <span style="color: blue;">Canarys</span> Idea Management System,
+<span style="color: blue;">{{ name }}</span> You're successfully logged in.</h1>
+</div>
+  
+    <!-- <div class="container" *ngIf="loginDisplay">
+      <div class="content-container">
+        <div style="margin-left: 120px">
+          <div>
+            <h2>Please Select the position:</h2>
+            <mat-form-field>
+              <mat-select [(ngModel)]="selectedPosition" (change)="onPositionChange(selectedPosition)">
+                <mat-option *ngFor="let post of posts" [value]="post.value">
+                  {{post.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-raised-button color="primary" (click)="matchPosition()">Select</button>
+          </div>
+        </div>
+  
+        <div class="space">
+          <div *ngIf="selectedPosition==='Employee' && positionMatched===true" style="margin-left: 100px">
+            <h1>Hey {{name}}, Add an <a href="employee">Employee</a> here</h1>
+          </div>
+  
+          <div *ngIf="selectedPosition==='Admin' && positionMatched===true" style="margin-left: 100px">
+            <h1>Hey {{name}}, Add an <a href="ins-lead">Admin Review</a> here</h1>
+          </div>
+  
+          <div *ngIf="selectedPosition==='BUHead' && positionMatched===true" style="margin-left: 100px">
+            <h1>Hey {{name}}, Add an <a href="bu-head">BU Review</a> here</h1>
+          </div>
+  
+          <div *ngIf="selectedPosition==='CXO' && positionMatched===true" style="margin-left: 100px">
+            <h1>Hey {{name}}, Add an <a href="cxo">CXO Review</a> here</h1>
+          </div>
+  
+          <div *ngIf="positionMatched===false" style="margin-left: 100px">
+            <h2>No match found for the selected position.</h2>
+          </div>
+        </div>
+      </div> -->
+      <div class="container" *ngIf="loginDisplay">
+        <div class="content-container">
+          <div *ngIf="BuId.includes(localAccountId)">
+            <div style="margin-left: 100px">
+              <h1>Hey {{ name }}, Add a <a href="bu-head">BU Review</a> here</h1>
+            </div>
+          </div>
+          <div *ngIf="CxoId.includes(localAccountId)">
+            <div style="margin-left: 100px">
+              <h1>Hey!! Waiting for your opinion add a <a href="cxo">CXO Review</a></h1>
+            </div>
+          </div>
+          <div *ngIf="AdminId.includes(localAccountId)">
+            <div style="margin-left: 100px">
+              <h1>Hey {{ name }}, Add an <a href="ins-lead">Admin Review</a> here</h1>
+            </div>
+          </div>
+          <div *ngIf="EmpId.includes(localAccountId)">
+            <div style="margin-left: 100px">
+              <h1>Hey {{ name }}, Add an <a href="employee">Employee</a> here</h1>
+            </div>
+          </div>
+          <div *ngIf="!BuId.includes(localAccountId) && !CxoId.includes(localAccountId) && !AdminId.includes(localAccountId) && !EmpId.includes(localAccountId)">
+            <div style="margin-left: 100px">
+              <h2>Wait Position Match Checking...</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  

@@ -1,0 +1,69 @@
+<div class="page-header1">
+    <div><b>IMS Dashboard</b></div>
+  </div>
+  
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 25%;
+    }
+  
+    thead,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+  
+  <div style="display: flex; justify-content: center; margin-left: 100px;">
+    <!-- <div style="margin-left: 50px;">
+      <div style="font-weight: bold;">Statuswise Count:-</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Total Submitted Ideas</th>
+            <th>Number of Ideas In Open position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{totalIdea.count}}</td>
+            <td>{{ideaStatus.Count}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
+  
+    <div style="width: 500px; height: 1250p; display: flex; justify-content: end; margin-right: 500px; margin-top: 20px;">
+    </div>
+  </div>
+  
+  <!-- Rejection Reason Piechart -->
+  <div style="margin-top: 10px; margin-bottom: 200px; display: flex; justify-content: center; margin-top: 30px;">
+    <div id="chart1">
+      <div class="col-lg-6">
+        <h4 style="text-align: center;"><b>Admin Rejection Reason</b></h4>
+        <canvas id="AdminRejectionReason"></canvas>
+      </div>
+    </div>
+  
+    <div id="chart2">
+      <div class="col-lg-6">
+        <h4 style="text-align: center;"><b>BU wise Idea Count</b></h4>
+        <canvas id="BuRejectionReason"></canvas>
+      </div>
+    </div>
+  
+    <div id="chart3">
+      <div class="col-lg-6">
+        <h4 style="text-align: center;"><b>CXO Rejection Reason</b></h4>
+        <canvas id="CxoRejectionReason"></canvas>
+      </div>
+    </div>
+  </div>
+  

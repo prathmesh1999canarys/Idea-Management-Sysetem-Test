@@ -1,0 +1,21 @@
+<mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+    <div><b>Add Business Unit</b></div>
+    <mat-icon  [mat-dialog-close]="">close</mat-icon>
+  </mat-toolbar>
+
+<div class="container"> 
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>BU Name</mat-label>
+        <input [(ngModel)]="data.bU_Name" type="text" name="BU_Name" matInput placeholder="BU Name">
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>BU Description</mat-label>
+        <input [(ngModel)]="data.bU_Description" type="text" name="BU Description" matInput placeholder="BU_Description">
+    </mat-form-field>
+   
+    
+</div>
+<div class="text-center col-12">
+    <button [mat-dialog-close]="" mat-raised-button color="primary" (click)="add(data)">Add</button>
+</div>

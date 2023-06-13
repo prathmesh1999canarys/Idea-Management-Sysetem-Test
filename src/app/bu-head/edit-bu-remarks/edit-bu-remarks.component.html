@@ -1,0 +1,78 @@
+
+<mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+    <div> <b>Edit BU Remarks </b></div>
+    <mat-icon  [mat-dialog-close]="">close</mat-icon>
+</mat-toolbar>
+<div class="container">
+    <table>
+    <tr>
+    <td style="padding-right: 10px;">
+        <mat-form-field class="w-100 mr-2" appearance="outline">
+            <mat-label>Decision</mat-label>
+            <select matNativeControl required name="decision" [(ngModel)]="stag.decision" #decision="ngModel" (change)="decisionChange()">
+              <option value="">Select</option>
+              <option value="Accepted">Accepted</option>
+              <option value="Rework">Rework</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </mat-form-field>
+</td>
+<td>
+    <mat-form-field appearance="outline">
+        <mat-label>Budget</mat-label>
+        <input [(ngModel)]="stag.budget" name="budget" type="number" matInput placeholder="Budget" oninput="validity.valid||(value=''); if(value < 0) value = '';" min="0">    
+        </mat-form-field>
+</td>
+</tr>
+</table>
+    <table>
+    <tr>
+    <td style="padding-right: 10px;">
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Lead</mat-label>
+        <input [(ngModel)]="stag.lead" type="text" name="lead" matInput placeholder="Lead">
+    </mat-form-field>
+</td>
+<td>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Deadline</mat-label>
+        <input [(ngModel)]="stag.deadline" matInput [matDatepicker]="picker" [min]="minDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+</td>
+</tr>
+</table>
+    <table>
+    <tr>
+    <td style="padding-right: 10px;">
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>RejectionReason</mat-label>
+            <select matNativeControl name="rejectionReason" [(ngModel)]="stag.rejectionReason" [disabled]="!isRejectionReasonEnabled">
+              <option value="">Select</option>
+              <option value="Unfit">Unfit</option>
+              <option value="Too Expensive">Too Expensive</option>
+              <option value="No Budget">No Budget</option>
+              <option value="Wrong Timing">Wrong Timing</option>
+              <option value="Too Complex">Too Complex</option>
+              <option value="Unwilling">Unwilling</option>
+            </select>
+          </mat-form-field>
+</td>
+<td>
+    <mat-form-field class="w-100" appearance="outline">
+      <mat-label>ProjectId</mat-label>
+      <input [(ngModel)]="stag.projectId" type="text" name="projectId" matInput placeholder="Project Id">
+    </mat-form-field>
+</td>
+</tr>
+</table>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Remarks</mat-label>
+        <input [(ngModel)]="stag.remarks" type="text" name="remarks" matInput placeholder="Remarks">
+      </mat-form-field>
+</div>
+<div class="text-center col-12">
+    <button [mat-dialog-close]="" mat-raised-button color="primary" (click)="update(stag)">Save</button>
+</div>

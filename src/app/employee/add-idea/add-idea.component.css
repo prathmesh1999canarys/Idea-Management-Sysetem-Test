@@ -1,0 +1,15 @@
+label .required {
+    color: red;
+    margin-left: 5px;
+  }
+  .mr-2{
+    margin: right 5px;;
+    }
+   
+  textarea {
+  caret-color: transparent;
+}
+.container{
+  padding:10px ;
+}
+

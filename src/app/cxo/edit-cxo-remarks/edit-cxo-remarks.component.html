@@ -1,0 +1,44 @@
+<div style="overflow: hidden;">
+<mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+    <div> <b>Edit CXO Remarks </b></div>
+    <mat-icon  [mat-dialog-close]="">close</mat-icon>
+</mat-toolbar>
+<div class ="container">
+<mat-form-field class="w-100" appearance="outline">
+    <mat-label>Area</mat-label>
+    <input mat-input type="string" [(ngModel)]="stag.area" name="area" matInput placeholder="area">
+</mat-form-field>
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>Decision</mat-label>
+    <mat-select [(ngModel)]="stag.decision" name="decision" (selectionChange)="decisionChange()">
+      <mat-option value="Accepted">Accepted</mat-option>
+      <mat-option value="Rework">Rework</mat-option>
+      <mat-option value="Rejected">Rejected</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="margin-left: 20px;">
+    <mat-label>RejectionReason</mat-label>
+    <mat-select [(ngModel)]="stag.rejectionReason" name="rejectionReason" placeholder="rejectionReason" maxlength="100" [disabled]="!isRejectionReasonEnabled">
+      <mat-option value="Fitment">Fitment</mat-option>
+      <mat-option value="Size">Size</mat-option>
+      <mat-option value="Budget">Budget</mat-option>
+      <mat-option value="Clarity">Clarity</mat-option>
+      <mat-option value="NotApplicable">Not Applicable</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+  
+
+<mat-form-field class="w-100" appearance="outline">
+    <mat-label>Remarks</mat-label>
+    <input [(ngModel)]="stag.remarks" type="text" name="remarks" matInput placeholder="remarks">
+</mat-form-field>
+
+</div>
+</div>
+
+<div class="text-center col-12">
+    <button [mat-dialog-close]="" mat-raised-button color="primary" (click)="update(stag)">Save</button>
+</div>

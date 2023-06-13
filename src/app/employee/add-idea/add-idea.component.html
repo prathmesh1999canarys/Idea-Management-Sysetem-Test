@@ -1,0 +1,76 @@
+<div style="overflow: hidden;">
+    <mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+      <div>Add New Idea</div>
+      <mat-icon [mat-dialog-close]="">close</mat-icon>
+    </mat-toolbar>
+
+    <div class="container">
+
+        <form style="padding-top: 10px;" #addForm="ngForm">
+          
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Problem</mat-label>
+            <textarea [(ngModel)]="data.problem" name="problem" matInput placeholder="Problem" required
+              maxlength="500"></textarea>
+          </mat-form-field>
+    
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Solution</mat-label>
+            <textarea [(ngModel)]="data.solution" mat-input type="text" name="solution" matInput placeholder="Solution"
+              required maxlength="500"></textarea>
+          </mat-form-field>
+
+          <table width="100%">
+            <tr>
+              <td style="padding-right: 10px;">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Select Business Unit</mat-label>
+                <mat-select [(value)]="data.bU_Id">
+                <input [(ngModel)]="data.businessUnitBU_Name" name="BusinessUnit" matInput placeholder="BusinessUnit">
+                <mat-option *ngFor = 'let element of datasource' value="{{element.id}}">{{element.bU_Name}}
+                </mat-option>
+                </mat-select>
+                </mat-form-field>
+              
+              </td>
+              <td>
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Area</mat-label>
+                  <input [(ngModel)]="data.area" type="text" name="area" matInput placeholder="Area" required
+                    maxlength="50">
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%">
+            <tr>
+              <td style="padding-right: 10px;">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Status</mat-label>
+                  <mat-select [(ngModel)]="data.status" name="status" required maxlength="50">
+                    <mat-option value="New">New</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>PotentialCustomers</mat-label>
+                  <input [(ngModel)]="data.potentialCustomers" type="text" name="potentialCustomers" matInput
+                    placeholder="PotentialCustomers">
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Remarks</mat-label>
+            <input [(ngModel)]="data.remarks" name="remarks" matInput placeholder="remarks"
+              maxlength="500">
+          </mat-form-field>
+        </form>
+      </div>
+    
+      <div class="text-center col-12">
+        <button [mat-dialog-close]="" mat-raised-button color="primary" (click)="add(data)">Submit</button>
+      </div>
+    </div>

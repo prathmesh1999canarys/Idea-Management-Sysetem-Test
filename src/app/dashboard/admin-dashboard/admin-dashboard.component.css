@@ -1,0 +1,58 @@
+.page-header1 {
+    background-color: #DBEAFE;
+    border-radius: 5px;
+    color: #000;
+    padding: 10px;
+    margin-top: 7px;
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    justify-content: space-between;
+}
+
+#chart1,
+#chart2 {
+    display: inline-block;
+    width: 40%;
+}
+
+.page-header {
+    background-color: #DBEAFE;
+    border-radius: 5px;
+    color: #000;
+    padding: 10px;
+    margin-top: 7px;
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+}
+
+.table-container {
+    margin-right: 80px;
+    margin-left: 30px;
+}
+
+.graph-container {
+    flex-grow: 1;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}

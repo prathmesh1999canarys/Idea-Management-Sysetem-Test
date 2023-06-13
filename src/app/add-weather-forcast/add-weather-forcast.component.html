@@ -1,0 +1,27 @@
+
+<mat-toolbar class="d-flex justify-content-between">
+    <div>Add Weather Forcast</div>
+    <mat-icon  [mat-dialog-close]="">close</mat-icon>
+</mat-toolbar>
+<div>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Temperature in C</mat-label>
+        <input [(ngModel)]="data.temperatureC" type="number" name="category" matInput placeholder="Temperature in C">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Temperature in F</mat-label>
+        <input [(ngModel)]="data.temperatureF" mat-input type="number" name="temp" matInput placeholder="Temperature in F">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="data.name" type="text" name="name" matInput placeholder="Summary">
+    </mat-form-field>
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Summary</mat-label>
+        <input [(ngModel)]="data.summary" type="text" name="summary" matInput placeholder="Summary">
+    </mat-form-field>
+    
+</div>
+<div class="text-center col-12">
+    <button mat-raised-button color="primary" (click)="add(data)">Add</button>
+</div>

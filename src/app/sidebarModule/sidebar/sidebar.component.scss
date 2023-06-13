@@ -1,0 +1,61 @@
+// mat-sidenav {
+//     width: 270px;
+//   }
+  
+mat-sidenav-container {
+    .sicon {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+  
+    .arrow_icon {
+      .chevron-button{
+        position: absolute;
+        right: 0 !important;
+      }
+    }
+  
+    height: 100vh;
+  
+    .menu-item {
+      margin-left: 5px;
+    }
+  
+    .sub-icn{
+        margin-left: 15px;
+    }
+  
+    .mat-icon.mat-primary {
+      color: #84828A;
+    }
+  
+    mat-nav-list {
+      .chevron-button {
+        transition: 300ms ease-in-out;
+        transform: rotate(0deg);
+      }
+  
+      .chevron-button.rotated {
+        transform: rotate(180deg);
+      }
+    }
+  
+    .chevron-button.rotated {
+      transform: rotate(180deg);
+    }
+  
+    .router-link-active {
+      .menu-item3 {
+        border-left: 2px solid #1CB7EF;
+      }
+  
+      .menu-item {
+        color: #1CB7EF;
+      }
+  
+      
+    }
+  }
+  .collapsed { overflow-y:hidden; }
+  .expanded { overflow: scroll; }

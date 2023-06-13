@@ -1,0 +1,77 @@
+
+<div style="overflow: hidden;">
+    <mat-toolbar [style.background-color]="'#DBEAFE'" class="d-flex justify-content-between">
+    <div>Edit Idea</div>
+    <mat-icon [mat-dialog-close]="">close</mat-icon>
+</mat-toolbar>
+
+<div class="container" >
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Problem</mat-label>
+        <textarea type="text" [(ngModel)]="stag.problem" name="problem" matInput placeholder="Problem" required maxlength="500"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Solution</mat-label>
+        <textarea mat-input type="text" [(ngModel)]="stag.solution" name="solution" matInput placeholder="Solution" required maxlength="500"></textarea>
+    </mat-form-field>
+
+    <table width="100%" > 
+    <tr>
+    <td style="padding-right: 10px;">
+        <mat-form-field class="w-100" appearance="outline">
+        <mat-select [(ngModel)]="stag.bU_Id" [placeholder]="stag.businessUnitBU_Name">
+        <mat-option *ngFor = 'let element of datasource' value="{{element.id}}">{{element.bU_Name}}
+        </mat-option>
+        </mat-select>
+        </mat-form-field>
+   </td>
+    <td>   
+         <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Area</mat-label>
+                    <input type="text" [(ngModel)]="stag.area" name="area" matInput placeholder="Area" required maxlength="50">
+                </mat-form-field>
+            </td>  
+        </tr>
+    </table>
+    <table width="100%"> 
+        <tr>
+            <td style="padding-right: 10px;">
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Status</mat-label>
+                    <mat-select [(ngModel)]="stag.status" type="text" name="Status">
+                      <mat-option value="New">New</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </td> 
+            <td>
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Potential Customers</mat-label>
+                    <input type="text" [(ngModel)]="stag.potentialCustomers" name="potentialCustomers" matInput placeholder="PotentialCustomers">
+                </mat-form-field>
+            </td>  
+        </tr>
+    </table>
+    <table width="100%"> 
+        <tr>
+            <!-- <td style="padding-right: 10px;">
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>WorkFlowStatus</mat-label>
+                    <input type="text" [(ngModel)]="stag.workFlowStatus" name="workFlowStatus" matInput placeholder="WorkFlowStatus">
+                </mat-form-field>
+            </td> -->
+            <td>
+
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Remarks</mat-label>
+                    <input type="text" [(ngModel)]="stag.remarks" name="remarks" matInput placeholder="Remarks" required maxlength="500">
+                </mat-form-field>
+            </td>  
+        </tr>
+    </table>
+</div>
+
+<div class="text-center col-12">
+    <button [mat-dialog-close]="" mat-raised-button color="primary" (click)="update(stag)">Save</button>
+</div>
+</div>
